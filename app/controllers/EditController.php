@@ -2,7 +2,11 @@
 use Phalcon\Mvc\View;
 class EditController extends ControllerBase{
  
- 
+  public function indexAction(){
+    if($this->request->isPost()){
+    $this->response->redirect('profile');
+    }
+  }
   public function setAction($num){
     session_start();
         $_SESSION["edit"] = $num;
@@ -22,7 +26,8 @@ class EditController extends ControllerBase{
           $member->save();
       
           $this->response->redirect('profile');
-                
+      
+          
           }
   }
   public function delAction($num){

@@ -77,8 +77,8 @@
       <th scope="row"><?php echo $x+1;?></th>
         <td><?php echo $count[$x]->eventname;?></td>
         <td><?php echo $count[$x]->eventdate;?></td>
-        <td><a type="button" class="btn btn-outline-light" style="color:black;"href="<?php echo $this->url->getBaseUri(); ?>edit/set/<?php echo $x+1?>">Edit</a></td>
-        <td><a type="button" class="btn btn-outline-light" style="color:black;"href="<?php echo $this->url->getBaseUri(); ?>edit/del/<?php echo $x+1?>">Delete</a></td>
+        <td><a type="button" class="btn btn-outline-light" style="color:black;"href="<?php echo $this->url->getBaseUri(); ?>edit/set/<?php echo $count[$x]->id?>">Edit</a></td>
+        <td><a type="button" class="btn btn-outline-light" style="color:black;"href="<?php echo $this->url->getBaseUri(); ?>edit/del/<?php echo $count[$x]->id?>">Delete</a></td>
     
     </tr>
     <?php
