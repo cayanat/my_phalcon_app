@@ -1,0 +1,88 @@
+
+<div class="row">
+    <div class="col-sm">
+     
+    </div>
+    <div class="col-sm">
+<form action="" method="post" enctype="multipart/form-data">
+	<input type="hidden"  name="profileId"  value="<?php echo $profile->id;?>">
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" name="email" class="form-control" id="email"   required value="<?php echo $profile->username?>">
+  </div>
+  
+  <div class="form-group">
+    <label>Firstname</label>
+    <input type="text" name="firstname" class="form-control" id="firstname"   required value="<?php echo $profile->first_name?>"> 
+  </div>
+  
+   <div class="form-group">
+    <label>Picture</label>
+    <div class="custom-file">
+          <input type="file" name="photo"  class="custom-file-input"  >
+          <label class="custom-file-label" >Choose file</label>
+    </div>
+  </div>
+  <?php if($profile->picture!=''){?>
+   <div class="form-group">  
+          <img style="width:100px; height:100px" src="<?php echo $this->url->getBaseUri().'public/img/'.$profile->picture; ?>">
+  </div>
+  <?php }?>
+  <button type="submit" class="btn btn-info">Submit</button>
+  
+  <a href="<?php echo $this->url->getBaseUri(); ?>" class="btn btn-warning">Back</a>
+
+</form>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+
+   <!-- About Section -->
+   <section id="about" class="content-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>About </h2>
+            <img style="width:200px; height:200px;display:table;margin:auto "class="rounded-circle img-fluid" src="public\img\me.jpg" alt="me">
+            <p>Name:Cayanat Panchon</p><p>ID:590610609</p>
+            <p>FB:
+              <a href="https://www.facebook.com/peaws.kung">ชยณัฐ พันชน</a></p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Section -->
+    <section id="event">
+    <a type="button" class="btn btn-outline-danger" href="<?php echo $this->url->getBaseUri(); ?>add">Add</a>
+    <table class="table table-striped table-dark">
+    <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Event</th>
+      <th scope="col">Date</th>
+    </tr>
+    </thead>
+
+   
+    <tbody>
+    <?php 
+    
+    $count = Event::find("");
+    for ($x = 0; $x < count($count); $x++) {
+      ?>
+    <tr>
+      <th scope="row"><?php echo $x+1;?></th>
+        <td><?php echo $count[$x]->eventname;?></td>
+        <td><?php echo $count[$x]->eventdate;?></td>
+        <td><a type="button" class="btn btn-outline-light" style="color:black;"href="<?php echo $this->url->getBaseUri(); ?>edit/set/<?php echo $x+1?>">Edit</a></td>
+        <td><a type="button" class="btn btn-outline-light" style="color:black;"href="<?php echo $this->url->getBaseUri(); ?>edit/del/<?php echo $x+1?>">Delete</a></td>
+    
+    </tr>
+    <?php
+    } 
+    ?>
+    </tbody>
+    </table>

@@ -1,0 +1,19 @@
+<?php echo $this->flashSession->output();?> 
+
+<form action="" method="post" >
+<center>
+    <label>Event</label>
+    <input type="text" class="form-control" placeholder="eventname" required name="eventname" id="eventname">
+    <br><label>Date</label>
+    <input type="date" class="form-control" placeholder="mm/dd/yyyy" required name="eventdate" id="eventdate" >
+    <br><label>Detail</label>
+    <textarea type="text" class="form-control" placeholder="eventdetails" required rows="4" name="eventdetail" id="eventdetail"></textarea>
+    <br><label>Picture</label>
+    <div class="custom-file">
+          <input type="file" name="photo" id="photo" class="custom-file-input"  >
+          <label class="custom-file-label" >Choose file</label>
+    </div>
+    <hr><button type="submit" class="btn btn-light">submit</button>
+    <a href="<?php echo $this->url->getBaseUri(); ?>profile" class="btn btn-light">Back</a>
+</center>
+</form>
